@@ -48,6 +48,7 @@ class Login extends Component {
                 type="text"
                 name="login-name-input"
                 onChange={ this.handleChange }
+                placeholder="Nome"
                 id="login-name-input"
                 data-testid="login-name-input"
               />
