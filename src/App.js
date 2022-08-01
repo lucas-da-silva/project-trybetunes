@@ -25,14 +25,14 @@ class App extends React.Component {
         <p>TrybeTunes</p>
         <BrowserRouter>
           <Switch>
-            {
-              isRedirect && <Redirect to="/search" />
-            }
             <Route exact path="/album/:id" component={ Album } />
             <Route exact path="/search" component={ Search } />
             <Route exact path="/profile/edit" component={ ProfileEdit } />
             <Route exact path="/profile" component={ Profile } />
             <Route exact path="/favorites" component={ Favorites } />
+            {
+              isRedirect && <Redirect to="/search" />
+            }
             <Route
               exact
               path="/"

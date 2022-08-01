@@ -43,7 +43,7 @@ class Login extends Component {
       <div data-testid="page-login">
         {
           loading ? <Loading /> : (
-            <form action="get">
+            <form>
               <input
                 type="text"
                 name="login-name-input"
