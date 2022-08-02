@@ -3,27 +3,32 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import Loading from '../components/Loading';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     musics: undefined,
+    favoriteSongs: '',
+    loading: true,
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
-    this.setState({ musics });
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({ musics, favoriteSongs, loading: false });
   }
 
   render() {
-    const { musics } = this.state;
+    const { musics, favoriteSongs, loading } = this.state;
 
     return (
       <div data-testid="page-album">
         <Header />
 
         {
-          musics && (
+          loading ? <Loading /> : (
             <div className="album-container">
               <section className="artist-name">
                 <img src={ musics[0].artworkUrl100 } alt={ musics[0].collectionName } />
@@ -31,7 +36,7 @@ class Album extends Component {
                 <p data-testid="artist-name">{musics[0].artistName}</p>
               </section>
               <section className="musics-play">
-                <MusicCard musics={ musics } />
+                <MusicCard musics={ musics } favoriteSongs={ favoriteSongs } />
               </section>
             </div>
           )
