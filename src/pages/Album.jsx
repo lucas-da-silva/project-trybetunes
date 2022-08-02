@@ -36,7 +36,10 @@ class Album extends Component {
                 <p data-testid="artist-name">{musics[0].artistName}</p>
               </section>
               <section className="musics-play">
-                <MusicCard musics={ musics } favoriteSongs={ favoriteSongs } />
+                <MusicCard
+                  musics={ musics }
+                  favoriteSongs={ favoriteSongs }
+                />
               </section>
             </div>
           )

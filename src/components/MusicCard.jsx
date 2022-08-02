@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
     state = {
@@ -14,38 +14,33 @@ class MusicCard extends Component {
       this.setState({ id: favoriteSongs });
     }
 
-    addFavoriteSong = (song) => {
+    changeFavoriteSong = (song, { target: { checked } }) => {
       this.setState(
         { loading: true },
         async () => {
-          await addSong(song);
+          if (checked) {
+            await addSong(song);
+          } else {
+            await removeSong(song);
+          }
           this.setState({ loading: false });
         },
       );
     }
 
-    changeCheckbox = (song) => {
-      const { id } = this.state;
-      let idsFilters = [];
-
-      if (id.length) {
-        const isFound = id.find(({ trackId }) => trackId === song.trackId);
-        if (isFound) {
-          idsFilters = id.filter(({ trackId }) => trackId !== isFound.trackId);
-        } else {
-          idsFilters = [...id, song];
-        }
+    changeCheckbox = (song, { target: { checked } }) => {
+      if (checked) {
+        this.setState(({ id }) => ({ id: [...id, song] }));
       } else {
-        idsFilters.push(song);
+        const { id } = this.state;
+        const idsFilters = id.filter(({ trackId }) => trackId !== song.trackId);
+        this.setState({ id: idsFilters });
       }
-
-      this.setState({ id: idsFilters });
     }
 
     render() {
       const { loading, id } = this.state;
       const { musics } = this.props;
-
       const musicsFilters = musics.filter((music, index) => index !== 0);
       const musicsHtml = musicsFilters.map((music) => {
         let checkboxFavorite = false;
@@ -76,8 +71,8 @@ class MusicCard extends Component {
                 type="checkbox"
                 id="input-favorite-music"
                 checked={ checkboxFavorite }
-                onClick={ () => this.addFavoriteSong(music) }
-                onChange={ () => this.changeCheckbox(music) }
+                onClick={ (e) => this.changeFavoriteSong(music, e) }
+                onChange={ (e) => this.changeCheckbox(music, e) }
               />
             </label>
           </div>
