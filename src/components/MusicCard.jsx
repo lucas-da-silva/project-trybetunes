@@ -44,12 +44,8 @@ class MusicCard extends Component {
     render() {
       const { loading, id } = this.state;
       const { musics } = this.props;
-      let musicsFilters = musics;
 
-      if (musics.length && musicsFilters[0].wrapperType === 'collection') {
-        musicsFilters = musics.filter((music, index) => index !== 0);
-      }
-      const musicsHtml = musicsFilters.map((music) => {
+      const musicsHtml = musics.map((music) => {
         let checkboxFavorite = false;
 
         if (id.length) {

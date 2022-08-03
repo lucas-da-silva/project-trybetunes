@@ -41,7 +41,7 @@ class Album extends Component {
               </section>
               <section className="musics-play">
                 <MusicCard
-                  musics={ musics }
+                  musics={ musics.filter((music, index) => index !== 0) }
                   favoriteSongs={ favoriteSongs }
                 />
               </section>
