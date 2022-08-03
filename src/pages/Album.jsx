@@ -13,7 +13,11 @@ class Album extends Component {
     loading: true,
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.handleApi();
+  }
+
+  handleApi = async () => {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
     const favoriteSongs = await getFavoriteSongs();
