@@ -14,18 +14,21 @@ class MusicCard extends Component {
       this.setState({ id: favoriteSongs });
     }
 
-    changeFavoriteSong = (song, { target: { checked } }) => {
-      this.setState(
-        { loading: true },
-        async () => {
-          if (checked) {
-            await addSong(song);
-          } else {
-            await removeSong(song);
-          }
-          this.setState({ loading: false });
-        },
-      );
+    changeFavoriteSong = async (song, { target }) => {
+      const { checked } = target;
+      this.setState({ loading: true });
+
+      if (checked) {
+        await addSong(song);
+      } else {
+        await removeSong(song);
+        const { removeFavoriteSong } = this.props;
+        if (removeFavoriteSong) {
+          removeFavoriteSong();
+        }
+      }
+
+      this.setState({ loading: false });
     }
 
     changeCheckbox = (song, { target: { checked } }) => {
@@ -41,7 +44,11 @@ class MusicCard extends Component {
     render() {
       const { loading, id } = this.state;
       const { musics } = this.props;
-      const musicsFilters = musics.filter((music, index) => index !== 0);
+      let musicsFilters = musics;
+
+      if (musics.length && musicsFilters[0].wrapperType === 'collection') {
+        musicsFilters = musics.filter((music, index) => index !== 0);
+      }
       const musicsHtml = musicsFilters.map((music) => {
         let checkboxFavorite = false;
 
@@ -97,6 +104,11 @@ MusicCard.propTypes = {
   favoriteSongs: PropTypes.arrayOf(PropTypes.shape({
     trackId: PropTypes.number,
   })).isRequired,
+  removeFavoriteSong: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  removeFavoriteSong: false,
 };
 
 export default MusicCard;
