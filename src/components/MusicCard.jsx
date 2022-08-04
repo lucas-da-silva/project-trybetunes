@@ -14,31 +14,32 @@ class MusicCard extends Component {
       this.setState({ id: favoriteSongs });
     }
 
-    changeFavoriteSong = async (song, { target }) => {
+    changeCheckbox = async (song, { target }) => {
       const { checked } = target;
+      let idsFilters;
       this.setState({ loading: true });
 
       if (checked) {
         await addSong(song);
+        this.setState(({ id }) => ({ id: [...id, song] }));
       } else {
         await removeSong(song);
+        const { id } = this.state;
+        idsFilters = id.filter(({ trackId }) => trackId !== song.trackId);
+
         const { removeFavoriteSong } = this.props;
         if (removeFavoriteSong) {
           removeFavoriteSong();
         }
       }
 
-      this.setState({ loading: false });
-    }
+      this.setState(() => {
+        if (idsFilters) {
+          return { id: idsFilters, loading: false };
+        }
 
-    changeCheckbox = (song, { target: { checked } }) => {
-      if (checked) {
-        this.setState(({ id }) => ({ id: [...id, song] }));
-      } else {
-        const { id } = this.state;
-        const idsFilters = id.filter(({ trackId }) => trackId !== song.trackId);
-        this.setState({ id: idsFilters });
-      }
+        return { loading: false };
+      });
     }
 
     render() {
@@ -74,7 +75,6 @@ class MusicCard extends Component {
                 type="checkbox"
                 id="input-favorite-music"
                 checked={ checkboxFavorite }
-                onClick={ (e) => this.changeFavoriteSong(music, e) }
                 onChange={ (e) => this.changeCheckbox(music, e) }
               />
             </label>
