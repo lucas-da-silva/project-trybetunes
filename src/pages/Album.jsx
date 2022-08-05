@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
@@ -32,7 +32,7 @@ class Album extends Component {
         <Header />
 
         {
-          loading ? <Loading /> : (
+          loading ? <LoadingSmall /> : (
             <div className="album-container">
               <section className="artist-name">
                 <img src={ musics[0].artworkUrl100 } alt={ musics[0].collectionName } />

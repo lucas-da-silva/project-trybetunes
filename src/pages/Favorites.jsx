@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
 import MusicCard from '../components/MusicCard';
 
 class Favorites extends Component {
@@ -33,7 +33,7 @@ class Favorites extends Component {
       <div data-testid="page-favorites">
         <Header />
         {
-          loading ? <Loading /> : <MusicCard
+          loading ? <LoadingSmall /> : <MusicCard
             favoriteSongs={ favoriteSongs }
             musics={ favoriteSongs }
             removeFavoriteSong={ this.removeFavoriteSong }

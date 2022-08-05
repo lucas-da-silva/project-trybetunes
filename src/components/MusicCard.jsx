@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Loading from './Loading';
+import LoadingSmall from './LoadingSmall';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
@@ -85,7 +85,7 @@ class MusicCard extends Component {
       return (
         <section>
           {
-            loading ? <Loading /> : musicsHtml
+            loading ? <LoadingSmall /> : musicsHtml
           }
         </section>
       );

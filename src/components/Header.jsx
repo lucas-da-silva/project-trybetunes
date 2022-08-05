@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
+import LoadingSmall from './LoadingSmall';
+import LOGOSMALL from '../images/logoSmall.png';
+import '../styles/Header.css';
 
 class Header extends Component {
     state = {
@@ -23,16 +25,43 @@ class Header extends Component {
       return (
         <header data-testid="header-component">
           {
-            loading ? <Loading /> : (
-              <div>
-                <p data-testid="header-user-name">{user.name}</p>
+            loading ? <LoadingSmall /> : (
+              <div className="header-container">
+                <img src={ LOGOSMALL } alt="Logo TrybeTunes" />
+                <div className="user-container">
+                  <p data-testid="header-user-name">{user.name}</p>
+                </div>
               </div>
             )
           }
-          <section>
-            <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
-            <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
-            <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+          <section className="links-container">
+            <div className="links-div">
+              <Link
+                className="link"
+                to="/search"
+                data-testid="link-to-search"
+              >
+                Pesquisa
+              </Link>
+            </div>
+            <div className="links-div">
+              <Link
+                className="link"
+                to="/favorites"
+                data-testid="link-to-favorites"
+              >
+                Favoritas
+              </Link>
+            </div>
+            <div className="links-div">
+              <Link
+                className="link"
+                to="/profile"
+                data-testid="link-to-profile"
+              >
+                Perfil
+              </Link>
+            </div>
           </section>
         </header>
       );

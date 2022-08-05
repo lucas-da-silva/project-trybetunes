@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
 import ProfileView from '../components/ProfileView';
 
 class Profile extends Component {
@@ -26,7 +26,7 @@ class Profile extends Component {
       <div data-testid="page-profile">
         <Header />
         {
-          loading ? <Loading /> : <ProfileView user={ user } />
+          loading ? <LoadingSmall /> : <ProfileView user={ user } />
         }
       </div>
     );

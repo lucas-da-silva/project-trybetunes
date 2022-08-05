@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../styles/Search.css';
 
 const MIN_LENGTH_INPUT = 2;
 
@@ -51,8 +52,8 @@ class Search extends Component {
       <div data-testid="page-search">
         <Header />
         {
-          loading ? <Loading /> : (
-            <form>
+          loading ? <LoadingSmall /> : (
+            <form className="search-artist-form">
               <input
                 type="text"
                 id="search-artist-input"
@@ -75,24 +76,26 @@ class Search extends Component {
         }
         {
           albums && albums.length > 0 && (
-            <section className="albums-container">
-              <h2>
+            <section className="albums-section-container">
+              <h2 id="result-search-artist">
                 Resultado de álbuns de:
                 {' '}
                 {artistSearch}
               </h2>
-              { albums.map((album) => (
-                <div key={ album.collectionId }>
-                  <Link
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    to={ `/album/${album.collectionId}` }
-                  >
-                    <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-                  </Link>
-                  <p>{album.collectionName}</p>
-                  <p>{album.artistName}</p>
-                </div>
-              )) }
+              <div className="albums-div-container">
+                { albums.map((album) => (
+                  <div className="album" key={ album.collectionId }>
+                    <Link
+                      data-testid={ `link-to-album-${album.collectionId}` }
+                      to={ `/album/${album.collectionId}` }
+                    >
+                      <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+                    </Link>
+                    <p className="name-album">{album.collectionName}</p>
+                    <p className="name-artist">{album.artistName}</p>
+                  </div>
+                )) }
+              </div>
             </section>
           )
         }

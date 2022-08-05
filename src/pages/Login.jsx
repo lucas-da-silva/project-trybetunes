@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
+import '../styles/Login.css';
+import LOGOBIG from '../images/logoBig.png';
 
 const MIN_LENGTH_INPUT = 3;
 
@@ -42,26 +44,33 @@ class Login extends Component {
     return (
       <div data-testid="page-login">
         {
-          loading ? <Loading /> : (
-            <form>
-              <input
-                type="text"
-                name="login-name-input"
-                onChange={ this.handleChange }
-                placeholder="Nome"
-                id="login-name-input"
-                data-testid="login-name-input"
+          loading ? <LoadingSmall /> : (
+            <div className="login-container">
+              <img
+                src={ LOGOBIG }
+                alt="Logo TrybeTunes"
+                className="logo-trybetunes"
               />
-              <button
-                type="button"
-                id="login-submit-button"
-                disabled={ isDisabled }
-                onClick={ this.savingUser }
-                data-testid="login-submit-button"
-              >
-                Entrar
-              </button>
-            </form>
+              <form className="login-form">
+                <input
+                  type="text"
+                  name="login-name-input"
+                  onChange={ this.handleChange }
+                  placeholder="Nome"
+                  id="login-name-input"
+                  data-testid="login-name-input"
+                />
+                <button
+                  type="button"
+                  id="login-submit-button"
+                  disabled={ isDisabled }
+                  onClick={ this.savingUser }
+                  data-testid="login-submit-button"
+                >
+                  Entrar
+                </button>
+              </form>
+            </div>
           )
         }
       </div>
