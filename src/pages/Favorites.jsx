@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import LoadingSmall from '../components/LoadingSmall';
 import MusicCard from '../components/MusicCard';
+import '../styles/Favorites.css';
 
 class Favorites extends Component {
   state = {
@@ -31,13 +32,19 @@ class Favorites extends Component {
     const { loading, favoriteSongs } = this.state;
     return (
       <div data-testid="page-favorites">
-        <Header />
+        <Header classDiv="links-div-favorites" classLink="link-favorites" />
         {
-          loading ? <LoadingSmall /> : <MusicCard
-            favoriteSongs={ favoriteSongs }
-            musics={ favoriteSongs }
-            removeFavoriteSong={ this.removeFavoriteSong }
-          />
+          loading ? <LoadingSmall /> : (
+            <div className="container-favorites-musics">
+              <p className="text-musics-favorites">Músicas favoritas:</p>
+              <MusicCard
+                havePicture
+                favoriteSongs={ favoriteSongs }
+                musics={ favoriteSongs }
+                removeFavoriteSong={ this.removeFavoriteSong }
+              />
+            </div>
+          )
         }
       </div>
     );

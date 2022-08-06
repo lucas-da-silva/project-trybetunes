@@ -1,0 +1,76 @@
+.container-musics {
+    display: flex;
+    align-items: center;
+}
+
+.album-container {
+    margin-bottom: 50px;
+}
+
+.album-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.album-section hr {
+    width: 800px;
+    margin: 25px 0;
+    border: 1px solid #E1E5EB;
+}
+
+.music-name {
+    font-size: 22px;
+    width: 250px;
+    font-weight: 400;
+    line-height: 22.55px;
+}
+
+.container-musics audio {
+    width: 438px;
+    margin-right: 35px;
+}
+
+/* I used the code from this video as a base to create the heart */
+/* https://www.youtube.com/watch?v=jQuLIUZIG3k */
+
+#heart {
+    height: 18px;
+    width: 18px;
+    background-color: #aab8c2;
+    outline: none;
+    -webkit-appearance: none;
+    user-select: none;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+#heart:before {
+    position: absolute;
+    content: "";
+    background-color: #aab8c2;
+    height: 62%;
+    width: 100%;
+    top: -59%;
+    border-radius: 75px 75px 0 0;
+}
+
+#heart:after {
+    position: absolute;
+    content: "";
+    background-color: #aab8c2;
+    height: 62%;
+    width: 100%;
+    transform: rotate(-90deg);
+    border-radius: 75px 75px 0 0;
+    top: 20%;
+    right: 80%;
+}
+
+#heart:hover, #heart:hover:before, #heart:hover:after {
+    cursor: pointer;
+    background-color: grey;
+}
+
+#heart:checked, #heart:checked:before, #heart:checked:after {
+    background-color: #fe0f42;
+}

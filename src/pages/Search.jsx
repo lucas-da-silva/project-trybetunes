@@ -50,20 +50,20 @@ class Search extends Component {
 
     return (
       <div data-testid="page-search">
-        <Header />
+        <Header classDiv="links-div-search" classLink="link-search" />
         {
           loading ? <LoadingSmall /> : (
             <form className="search-artist-form">
               <input
                 type="text"
-                id="search-artist-input"
+                className="search-artist-input"
                 placeholder="Nome do Artista"
                 value={ valueArtistInput }
                 onChange={ this.handleChange }
                 data-testid="search-artist-input"
               />
               <button
-                id="search-artist-button"
+                className="search-artist-button"
                 type="button"
                 disabled={ isDisabled }
                 onClick={ this.searchForArtist }
@@ -77,7 +77,7 @@ class Search extends Component {
         {
           albums && albums.length > 0 && (
             <section className="albums-section-container">
-              <h2 id="result-search-artist">
+              <h2 className="result-search-artist">
                 Resultado de álbuns de:
                 {' '}
                 {artistSearch}

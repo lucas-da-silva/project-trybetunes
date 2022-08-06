@@ -5,6 +5,7 @@ import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import LoadingSmall from '../components/LoadingSmall';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../styles/Album.css';
 
 class Album extends Component {
   state = {
@@ -29,15 +30,29 @@ class Album extends Component {
 
     return (
       <div data-testid="page-album">
-        <Header />
+        <Header classDiv="links-div-album" classLink="link-album" />
 
         {
           loading ? <LoadingSmall /> : (
             <div className="album-container">
               <section className="artist-name">
-                <img src={ musics[0].artworkUrl100 } alt={ musics[0].collectionName } />
-                <p data-testid="album-name">{musics[0].collectionName}</p>
-                <p data-testid="artist-name">{musics[0].artistName}</p>
+                <img
+                  className="img-album"
+                  src={ musics[0].artworkUrl100 }
+                  alt={ musics[0].collectionName }
+                />
+                <p
+                  className="album-name"
+                  data-testid="album-name"
+                >
+                  {musics[0].collectionName}
+                </p>
+                <p
+                  className="album-artist"
+                  data-testid="artist-name"
+                >
+                  {musics[0].artistName}
+                </p>
               </section>
               <section className="musics-play">
                 <MusicCard

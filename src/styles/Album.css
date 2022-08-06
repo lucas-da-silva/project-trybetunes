@@ -1,0 +1,31 @@
+.album-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.artist-name {
+    margin-right: 100px;
+}
+
+.img-album {
+    width: 290px;
+    height: 290px;
+    border-radius: 6px;
+}
+
+.album-name {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36.9px;
+    margin: 20px 0 12px 5px;
+    color: #023031;
+}
+
+.album-artist {
+    font-weight: 300;
+    font-size: 24px;
+    margin-left: 10px;
+    line-height: 25px;
+    color: #023031;
+}

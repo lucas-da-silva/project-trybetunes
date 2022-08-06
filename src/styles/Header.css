@@ -44,18 +44,60 @@
     text-decoration: none;
 }
 
-.links-div:nth-child(1) {
+/* Search */
+
+.links-div-search-1 {
     background-color: #036B52;
 }
 
-.links-div:nth-child(1) .link {
+.link-search-1 {
     color: white;
 }
 
-.links-div:nth-child(2), .links-div:nth-child(3) {
+.links-div-search-2 {
+    border-right: 3px rgb(255, 255, 255) solid;
+}
+
+.links-div-search-2, .links-div-search-3 {
     background-color: #F0F2F5;
 }
 
-.links-div:nth-child(2) .link, .links-div:nth-child(3) .link {
+.link-search-2, .link-search-3 {
     color: #2FC18C;
+}
+
+/* Favorites */
+
+.links-div-favorites-2 {
+    background-color: #036B52;
+}
+
+.links-div-favorites-1 {
+    border-right: 3px rgb(255, 255, 255) solid;
+}
+
+.link-favorites-1, .link-favorites-3 {
+    color: #023031;
+}
+
+.link-favorites-2 {
+    color: white;
+}
+
+/* Album */
+
+.links-div-album-1 {
+    background-color: #036B52;
+}
+
+.links-div-album-2 {
+    border-right: 3px rgb(255, 255, 255) solid;
+}
+
+.link-album-2, .link-album-3 {
+    color: #023031;
+}
+
+.link-album-1 {
+    color: white;
 }
