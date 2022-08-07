@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import USER from '../images/user.png';
 
 class ProfileEditHtml extends Component {
   render() {
     const { imageInput, nameInput, emailInput, descriptionInput, saveButtonDisabled,
       onInputChange, updateInfos } = this.props;
 
+    let userImage = USER;
+    if (imageInput) {
+      userImage = imageInput;
+    }
+
     return (
       <section className="form-container">
         <form className="profile-input">
           <div className="edit-div-profile">
-            <img src={ imageInput } alt={ nameInput } />
+            <img src={ userImage } alt={ nameInput } />
             <input
               data-testid="edit-input-image"
               type="text"

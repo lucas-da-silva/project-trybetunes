@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import LoadingSmall from './LoadingSmall';
 import LOGOSMALL from '../images/logoSmall.png';
+import USER from '../images/user.png';
 import '../styles/Header.css';
 
 class Header extends Component {
@@ -22,7 +23,12 @@ class Header extends Component {
 
     render() {
       const { loading, user } = this.state;
-      const { classDiv, classLink } = this.props;
+      const { classDiv, classLink, userImage } = this.props;
+      let imageProfile = USER;
+
+      if (userImage) {
+        imageProfile = userImage;
+      }
 
       return (
         <header data-testid="header-component">
@@ -32,6 +38,7 @@ class Header extends Component {
                 <div className="header-container">
                   <img src={ LOGOSMALL } alt="Logo TrybeTunes" />
                   <div className="user-container">
+                    <img src={ imageProfile } alt="Imagem de perfil" />
                     <p data-testid="header-user-name">{user.name}</p>
                   </div>
                 </div>
@@ -75,6 +82,11 @@ class Header extends Component {
 Header.propTypes = {
   classDiv: PropTypes.string.isRequired,
   classLink: PropTypes.string.isRequired,
+  userImage: PropTypes.string,
+};
+
+Header.defaultProps = {
+  userImage: '',
 };
 
 export default Header;

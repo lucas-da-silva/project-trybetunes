@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import LoadingSmall from '../components/LoadingSmall';
+import LoadingBig from '../components/LoadingBig';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../styles/Search.css';
 
@@ -9,17 +9,22 @@ const MIN_LENGTH_INPUT = 2;
 
 class Search extends Component {
   state = {
-    lengthArtistInput: 0,
     valueArtistInput: '',
     artistSearch: '',
     loading: false,
     albums: undefined,
+    isDisabled: true,
   }
 
   handleChange = ({ target: { value } }) => {
+    let isDisabled = false;
+    if (value.length < MIN_LENGTH_INPUT) {
+      isDisabled = true;
+    }
+
     this.setState({
-      lengthArtistInput: value.length,
       valueArtistInput: value,
+      isDisabled,
     });
   }
 
@@ -34,25 +39,21 @@ class Search extends Component {
           loading: false,
           albums,
           valueArtistInput: '',
+          isDisabled: true,
         });
       },
     );
   }
 
   render() {
-    const { lengthArtistInput, valueArtistInput, loading, albums,
-      artistSearch } = this.state;
-
-    let isDisabled = false;
-    if (lengthArtistInput < MIN_LENGTH_INPUT) {
-      isDisabled = true;
-    }
+    const { valueArtistInput, loading, albums,
+      artistSearch, isDisabled } = this.state;
 
     return (
       <div data-testid="page-search">
         <Header classDiv="links-div-search" classLink="link-search" />
         {
-          loading ? <LoadingSmall /> : (
+          loading ? <LoadingBig /> : (
             <form className="search-artist-form">
               <input
                 type="text"

@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
-.loading-small h1 {
+.loading-small .loading-small-text {
     font-size: 40px;
     line-height: 65px;
     font-weight: 300;

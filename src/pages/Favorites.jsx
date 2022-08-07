@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import LoadingSmall from '../components/LoadingSmall';
+import LoadingBig from '../components/LoadingBig';
 import MusicCard from '../components/MusicCard';
 import '../styles/Favorites.css';
 
@@ -34,7 +34,7 @@ class Favorites extends Component {
       <div data-testid="page-favorites">
         <Header classDiv="links-div-favorites" classLink="link-favorites" />
         {
-          loading ? <LoadingSmall /> : (
+          loading ? <LoadingBig /> : (
             <div className="container-favorites-musics">
               <p className="text-musics-favorites">Músicas favoritas:</p>
               <MusicCard

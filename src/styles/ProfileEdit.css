@@ -84,3 +84,11 @@ label {
     color: white;
     border: none;
 }
+
+#edit-button-save:disabled {
+    background-color: rgb(188, 188, 188);
+}
+
+#edit-button-save:hover {
+    cursor: pointer;
+}

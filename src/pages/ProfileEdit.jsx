@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
-import LoadingSmall from '../components/LoadingSmall';
+import LoadingBig from '../components/LoadingBig';
 import ProfileEditHtml from '../components/ProfileEditHtml';
 import '../styles/ProfileEdit.css';
 
@@ -82,7 +82,7 @@ class ProfileEdit extends Component {
           redirect && <Redirect to="/profile" />
         }
         {
-          loading ? <LoadingSmall /> : <ProfileEditHtml
+          loading ? <LoadingBig /> : <ProfileEditHtml
             saveButtonDisabled={ saveButtonDisabled }
             imageInput={ imageInput }
             nameInput={ nameInput }

@@ -5,7 +5,7 @@ class Loading extends Component {
   render() {
     return (
       <section className="loading-small">
-        <h1>Carregando...</h1>
+        <h1 className="loading-small-text">Carregando...</h1>
       </section>
     );
   }

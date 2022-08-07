@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import LoadingSmall from '../components/LoadingSmall';
+import LoadingBig from '../components/LoadingBig';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import '../styles/Album.css';
 
@@ -33,7 +33,7 @@ class Album extends Component {
         <Header classDiv="links-div-album" classLink="link-album" />
 
         {
-          loading ? <LoadingSmall /> : (
+          loading ? <LoadingBig /> : (
             <div className="album-container">
               <section className="artist-name">
                 <img

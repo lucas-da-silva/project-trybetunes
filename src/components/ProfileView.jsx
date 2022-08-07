@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import USER from '../images/user.png';
 
 class ProfileView extends Component {
   render() {
     const { user: { name, email, image, description } } = this.props;
 
+    let userImage = USER;
+    if (image) {
+      userImage = image;
+    }
+
+    let classEmail = 'profile-email';
+
+    if (email) {
+      classEmail = 'class-email-profile';
+    }
+
     return (
       <section className="profile-container">
         <div className="profile-img">
-          <img data-testid="profile-image" src={ image } alt={ name } />
+          <img data-testid="profile-image" src={ userImage } alt={ name } />
           <Link className="profile-edit" to="/profile/edit">Editar perfil</Link>
         </div>
         <div className="profile-name">
           <p className="profile-title">Nome</p>
           <p className="profile-content">{name}</p>
         </div>
-        <div className="profile-email">
+        <div className={ classEmail }>
           <p className="profile-title">E-mail</p>
           <p className="profile-content">{email}</p>
         </div>
