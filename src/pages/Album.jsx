@@ -58,6 +58,8 @@ class Album extends Component {
                 <MusicCard
                   musics={ musics.filter((music, index) => index !== 0) }
                   favoriteSongs={ favoriteSongs }
+                  classHr="hr-album"
+                  classMusicName="music-name-album"
                 />
               </section>
             </div>

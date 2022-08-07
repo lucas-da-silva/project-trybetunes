@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import LoadingSmall from '../components/LoadingSmall';
 import ProfileView from '../components/ProfileView';
+import '../styles/Profile.css';
 
 class Profile extends Component {
   state = {
@@ -24,7 +25,7 @@ class Profile extends Component {
 
     return (
       <div data-testid="page-profile">
-        <Header />
+        <Header classDiv="links-div-profile" classLink="link-profile" />
         {
           loading ? <LoadingSmall /> : <ProfileView user={ user } />
         }

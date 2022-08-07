@@ -6,7 +6,7 @@
 }
 
 .text-musics-favorites {
-    margin: 120px 0 25px 0;
+    margin: 120px 0 30px 15%;
     font-size: 24px;
 }
 
@@ -21,10 +21,3 @@
     margin-right: 60px;
 }
 
-.album-section hr {
-    /* width: 900px; */
-}
-
-.music-name {
-    /* margin-right: 30px; */
-}

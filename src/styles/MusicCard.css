@@ -12,12 +12,6 @@
     flex-direction: column;
 }
 
-.album-section hr {
-    width: 800px;
-    margin: 25px 0;
-    border: 1px solid #E1E5EB;
-}
-
 .music-name {
     font-size: 22px;
     width: 250px;
@@ -28,6 +22,26 @@
 .container-musics audio {
     width: 438px;
     margin-right: 35px;
+}
+
+/* Album */
+
+.hr-album {
+    width: 800px;
+    margin: 25px 0;
+    border: 1px solid #E1E5EB;
+}
+
+/* Favorites */
+
+.music-name-favorites {
+    margin-right: 30px;
+}
+
+.hr-favorites {
+    width: 910px;
+    margin: 25px 0;
+    border: 1px solid #E1E5EB;
 }
 
 /* I used the code from this video as a base to create the heart */

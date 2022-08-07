@@ -45,7 +45,7 @@ class MusicCard extends Component {
 
     render() {
       const { loading, id } = this.state;
-      const { musics, havePicture } = this.props;
+      const { musics, havePicture, classHr, classMusicName } = this.props;
 
       const musicsHtml = musics.map((music) => {
         let checkboxFavorite = false;
@@ -67,10 +67,10 @@ class MusicCard extends Component {
 
         return (
           <section className="album-section" key={ music.trackName }>
-            <hr />
+            <hr className={ classHr } />
             <div className="container-musics">
               {picture}
-              <p className="music-name">{music.trackName}</p>
+              <p className={ `music-name ${classMusicName}` }>{music.trackName}</p>
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
@@ -111,6 +111,8 @@ MusicCard.propTypes = {
   })).isRequired,
   removeFavoriteSong: PropTypes.func,
   havePicture: PropTypes.bool,
+  classHr: PropTypes.string.isRequired,
+  classMusicName: PropTypes.string.isRequired,
 };
 
 MusicCard.defaultProps = {

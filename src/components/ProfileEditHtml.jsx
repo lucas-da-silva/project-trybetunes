@@ -14,6 +14,7 @@ class ProfileEditHtml extends Component {
             <input
               data-testid="edit-input-image"
               type="text"
+              className="edit-input-image"
               name="imageInput"
               value={ imageInput }
               onChange={ onInputChange }
@@ -27,6 +28,7 @@ class ProfileEditHtml extends Component {
                 data-testid="edit-input-name"
                 id="edit-input-name"
                 name="nameInput"
+                placeholder="Nome"
                 value={ nameInput }
                 onChange={ onInputChange }
                 type="text"
@@ -40,6 +42,7 @@ class ProfileEditHtml extends Component {
                 data-testid="edit-input-email"
                 type="email"
                 name="emailInput"
+                placeholder="usuario@usuario.com.br"
                 value={ emailInput }
                 onChange={ onInputChange }
                 id="edit-input-email"
@@ -49,13 +52,14 @@ class ProfileEditHtml extends Component {
           <div className="edit-div-description">
             <label htmlFor="edit-input-description">
               Descrição
-              <input
+              <textarea
                 data-testid="edit-input-description"
                 type="text"
                 name="descriptionInput"
+                placeholder="Sobre mim"
                 value={ descriptionInput }
                 onChange={ onInputChange }
-                id="description"
+                id="edit-input-description"
               />
             </label>
           </div>

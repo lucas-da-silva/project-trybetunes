@@ -42,6 +42,8 @@ class Favorites extends Component {
                 favoriteSongs={ favoriteSongs }
                 musics={ favoriteSongs }
                 removeFavoriteSong={ this.removeFavoriteSong }
+                classHr="hr-favorites"
+                classMusicName="music-name-favorites"
               />
             </div>
           )

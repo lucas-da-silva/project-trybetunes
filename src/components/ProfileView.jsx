@@ -10,19 +10,19 @@ class ProfileView extends Component {
       <section className="profile-container">
         <div className="profile-img">
           <img data-testid="profile-image" src={ image } alt={ name } />
-          <Link to="/profile/edit">Editar perfil</Link>
+          <Link className="profile-edit" to="/profile/edit">Editar perfil</Link>
         </div>
         <div className="profile-name">
-          <p>Nome</p>
-          <p>{name}</p>
+          <p className="profile-title">Nome</p>
+          <p className="profile-content">{name}</p>
         </div>
         <div className="profile-email">
-          <p>E-mail</p>
-          <p>{email}</p>
+          <p className="profile-title">E-mail</p>
+          <p className="profile-content">{email}</p>
         </div>
         <div className="profile-description">
-          <p>Descrição</p>
-          <p>{description}</p>
+          <p className="profile-title">Descrição</p>
+          <p className="profile-content">{description}</p>
         </div>
       </section>
     );

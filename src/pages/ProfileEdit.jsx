@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
 import LoadingSmall from '../components/LoadingSmall';
 import ProfileEditHtml from '../components/ProfileEditHtml';
+import '../styles/ProfileEdit.css';
 
 class ProfileEdit extends Component {
   state = {
@@ -76,7 +77,7 @@ class ProfileEdit extends Component {
 
     return (
       <div data-testid="page-profile-edit">
-        <Header />
+        <Header classDiv="links-div-profile" classLink="link-profile" />
         {
           redirect && <Redirect to="/profile" />
         }
