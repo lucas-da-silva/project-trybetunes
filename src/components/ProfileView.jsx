@@ -12,12 +12,6 @@ class ProfileView extends Component {
       userImage = image;
     }
 
-    let classEmail = 'profile-email';
-
-    if (email) {
-      classEmail = 'class-email-profile';
-    }
-
     return (
       <section className="profile-container">
         <div className="profile-img">
@@ -28,7 +22,7 @@ class ProfileView extends Component {
           <p className="profile-title">Nome</p>
           <p className="profile-content">{name}</p>
         </div>
-        <div className={ classEmail }>
+        <div className="profile-email">
           <p className="profile-title">E-mail</p>
           <p className="profile-content">{email}</p>
         </div>

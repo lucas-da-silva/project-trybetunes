@@ -46,23 +46,21 @@
     color: #3D495C;
 }
 
-.profile-name {
+.profile-name, .profile-email, .profile-description {
     align-self: center;
-    margin: 0 195px 15px 0;
+    width: 282px;
 }
+
+.profile-name {
+    margin-bottom: 15px;
+}
+
 
 .profile-email {
-    align-self: center;
-    margin: 0 225px 25px 0;
-}
-
-.class-email-profile {
-    align-self: center;
-    margin: 0 178px 25px 0;
+    margin-bottom: 25px;
 }
 
 .profile-description {
-    align-self: center;
     margin-right: 2px;
 }
 
