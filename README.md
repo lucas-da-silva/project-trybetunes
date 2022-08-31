@@ -1,4 +1,4 @@
-# Bem vindo ao projeto Trybetunes!
+# Bem vindo ao repositório do projeto Trybetunes!
 
 ## Comentários
 Projeto complexo, onde foi a primeira vez que utilizei React Rout em um projeto. Agora os sites ficam mais complexos, com multiplas rotas na URL. Nesse projeto, crie um site que consome a API do Apple Music API com múltiplas funcionalidades.
