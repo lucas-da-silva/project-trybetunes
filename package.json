@@ -16,7 +16,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^1.1.2"
   },
-  "homepage": "/project-trybetunes",
+  "homepage": "https://lucas-da-silva.github.io/project-trybetunes/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
