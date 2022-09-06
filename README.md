@@ -18,6 +18,10 @@ Projeto complexo, onde foi a primeira vez que utilizei React Rout em um projeto.
 
 ---
 
+## [Versão Web](https://lucas-da-silva.github.io/project-trybetunes/)
+
+---
+
 ## Instalação do projeto localmente
 
 1. No terminal, em um diretório de sua escolha, clonar o repositório:
