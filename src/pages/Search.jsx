@@ -88,7 +88,7 @@ class Search extends Component {
                   <div className="album" key={ album.collectionId }>
                     <Link
                       data-testid={ `link-to-album-${album.collectionId}` }
-                      to={ `/album/${album.collectionId}` }
+                      to={ `/project-trybetunes/album/${album.collectionId}` }
                     >
                       <img src={ album.artworkUrl100 } alt={ album.collectionName } />
                     </Link>

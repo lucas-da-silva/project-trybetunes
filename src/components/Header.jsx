@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getUser } from '../services/userAPI';
-import LoadingSmall from './LoadingSmall';
 import LOGOSMALL from '../images/logoSmall.png';
 import USER from '../images/user.png';
+import { getUser } from '../services/userAPI';
 import '../styles/Header.css';
+import LoadingSmall from './LoadingSmall';
 
 class Header extends Component {
     state = {
@@ -46,7 +46,7 @@ class Header extends Component {
                   <div className={ `links-div ${classDiv}-1` }>
                     <Link
                       className={ `link ${classLink}-1` }
-                      to="/search"
+                      to="/project-trybetunes/search"
                       data-testid="link-to-search"
                     >
                       Pesquisa
@@ -55,7 +55,7 @@ class Header extends Component {
                   <div className={ `links-div ${classDiv}-2` }>
                     <Link
                       className={ `link ${classLink}-2` }
-                      to="/favorites"
+                      to="/project-trybetunes/favorites"
                       data-testid="link-to-favorites"
                     >
                       Favoritas
@@ -64,7 +64,7 @@ class Header extends Component {
                   <div className={ `links-div ${classDiv}-3` }>
                     <Link
                       className={ `link ${classLink}-3` }
-                      to="/profile"
+                      to="/project-trybetunes/profile"
                       data-testid="link-to-profile"
                     >
                       Perfil
